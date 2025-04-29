@@ -1,0 +1,594 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black1: #111317;
+    --black2: #1f2125;
+    --black3: #35373b;
+    --purpel1: #696fdd;
+    --purpel2: #a3a8f0;
+    --green1: #4CAF50;
+    --green2: #81C784;
+    --white1: #ffffff;
+    --white2: #d1d5db;
+    --background1: linear-gradient(135deg,rgb(186, 190, 253) 0%,rgb(66, 71, 158) 100%);
+    --background2: linear-gradient(180deg, #d6d9fa, rgb(149, 154, 243));
+}
+
+body {
+    font-family: 'Luckiest Guy', cursive;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: radial-gradient(circle at center, #4CAF50, #78ffd6, #32e0c4, #00c9a7); */
+    background: var(--black2);
+    background-size: 400% 400%;
+    padding-bottom: 5rem;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+
+
+/* The background image on the left */
+.background-side-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100vh;
+    background-image: url('/img/spy1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.background-side-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    background-image: url('/img/spy2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+
+.container {
+    z-index: 9000;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+}
+
+.first {
+    margin: 8rem 0;
+}
+
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+/* FOR SOCIAL I CON  */
+.social-icons {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.social-icons a {
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px 20px;
+    background: var(--purpel1);
+    border: none;
+    border-radius: 30%;
+    color: white;
+    font-size: 2rem;
+    font-weight: 590;
+    cursor: pointer;
+    box-shadow: 10px 8px #000;
+    transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+    color: #000;
+    transform: scale(1.1);
+}
+
+.social-icons a.active {
+    color: #000;
+}
+
+
+
+/* FOR MUSIC  */
+.music-icon {
+    position: fixed;
+    top: 20px;
+    right: 5rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.music-icon img {
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+}
+
+
+.first h1 {
+    font-size: 13rem;
+    margin-bottom: 20px;
+    text-shadow: 20px 20px #000;
+}
+
+
+
+
+/* SECTION 2  */
+.secound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.secound h1 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 15px 15px #000;
+}
+
+.hold {
+    width: 90%;
+}
+
+.secound p {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 5px 5px #000;
+}
+
+
+.spin-area {
+    margin: 20px 0;
+}
+
+#character-img {
+    width: 30%;
+    height: 30%;
+    object-fit: contain;
+    margin-bottom: 10px;
+    object-fit: contain;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#character-img:hover {
+    transform: scale(1.05);
+}
+
+#character-name {
+    font-size: 2.20rem;
+}
+
+
+#spin-count {
+    margin-top: 15px;
+    font-size: 3rem;
+    text-shadow: 5px 10px #000;
+}
+
+.controls button {
+    margin: 10px;
+    padding: 20px 50px;
+    background: var(--purpel1);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bolder;
+    cursor: pointer;
+    text-shadow: 3px 3px #000;
+    box-shadow: 10px 10px #000;
+    transition: transform 0.2s;
+    animation: zoomInOut 2s ease-in-out infinite;
+}
+.controls button:hover{
+    background-color: var(--purpel2);
+}
+
+/* Add this keyframes */
+@keyframes zoomInOut {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.controls button:hover {
+    transform: scale(1.1);
+}
+
+.rarity-bar {
+    margin-top: 20px;
+    font-size: 2.50rem;
+    text-shadow: 5px 5px #000;
+}
+
+
+
+
+
+/* SECTION 3 */
+.third {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    text-align: center;
+}
+
+.third h1 {
+    color: white;
+    font-size: 5rem;
+    margin-bottom: 20px;
+    text-shadow: 15px 15px #000;
+}
+
+.third p {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    width: 90%;
+    text-shadow: 5px 5px #000;
+}
+
+.slide-container {
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.slide-track {
+    display: flex;
+    width: calc(100% * 18);
+    animation: scroll 20s linear infinite;
+    will-change: transform;
+    gap: 3rem;
+    transition: none;
+}
+
+/* Pause the animation when hovering over the images */
+.slide-container:hover .slide-track {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-24%);
+    }
+}
+
+
+
+
+.slide-track img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border: 0.5rem solid white;
+    border-radius: 4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+/* New styles for the overlay */
+.slide-item {
+    position: relative;
+}
+
+.overlay {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-shadow: 5px 5px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 4rem;
+}
+
+.overlay span {
+    font-size: 1.40rem;
+    font-weight: bolder;
+}
+
+.slide-item:hover .overlay {
+    opacity: 1;
+}
+
+
+
+
+.me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 2rem;
+    margin-top: 3rem;
+    color: white;
+    text-decoration: none;
+    text-shadow: 5px 5px #000;
+}
+.me:hover{
+    color: #696fdd;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Animation: Slide In from Left */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation: Slide In from Right */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation: Slide In from Top */
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation: Slide In from Bottom */
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the slide animation only when it's visible */
+.scroll-animate-left {
+    opacity: 0;
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.scroll-animate-right {
+    opacity: 0;
+    animation: slideInFromRight 1s ease-out forwards;
+}
+
+.scroll-animate-top {
+    opacity: 0;
+    animation: slideInFromTop 1s ease-out forwards;
+}
+
+.scroll-animate-bottom {
+    opacity: 0;
+    animation: slideInFromBottom 1s ease-out forwards;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1000px) {
+    body {
+        padding-bottom: 3rem;
+        width: 100%;
+        max-width: 1600px;
+    }
+
+    .background-side-right {
+        display: none;
+    }
+
+    .social-icons {
+        top: 5px;
+        left: 50%;
+        gap: 5px;
+    }
+
+    .social-icons a {
+        margin: 10px;
+        padding: 5px 10px;
+        font-size: 1.50rem;
+        color: white;
+    }
+
+    .music-icon {
+        top: 65%;
+        right: 5px; 
+    }
+    
+    .music-icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .first h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        text-shadow: 20px 20px #000;
+    }
+
+
+
+
+
+
+    .secound p {
+        font-size: 1.50rem;
+        margin-bottom: 30px;
+        text-align: start;
+    }
+
+    #character-img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+
+    #character-name {
+        font-size: 2rem;
+    }
+
+    .rarity-bar {
+        font-size: 1.20rem;
+    }
+
+    .controls button {
+        margin: 10px;
+        padding: 20px 50px;
+        background: #4CAF50;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        font-size: 2rem;
+        font-weight: bolder;
+        cursor: pointer;
+        text-shadow: 3px 5px #000;
+        box-shadow: 10px 10px #000;
+        transition: transform 0.2s;
+        animation: zoomInOut 2s ease-in-out infinite;
+    }
+
+
+
+
+
+    .third p {
+        font-size: 1.50rem;
+        margin-bottom: 30px;
+        text-align: start;
+        width: 90%;
+    }
+
+    .slide-track {
+        gap: 2rem;
+    }
+
+    .slide-track {
+        width: calc(100% * 75);
+    }
+
+    .slide-track img {
+        width: 300px;
+        height: 300px;
+        border-radius: 2rem;
+    }
+
+    .overlay {
+        border-radius: 2rem;
+    }
+
+
+    .me {
+        font-size: 1.50rem;
+        margin-top: 3rem;
+    }
+    
+}

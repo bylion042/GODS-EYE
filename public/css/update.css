@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black1: #111317;
+    --black2: #1f2125;
+    --black3: #35373b;
+    --purpel1: #696fdd;
+    --purpel2: #a3a8f0;
+    --white1: #ffffff;
+    --white2: #d1d5db;
+    --background1: linear-gradient(135deg,rgb(186, 190, 253) 0%,rgb(66, 71, 158) 100%);
+    --background2: linear-gradient(180deg, #d6d9fa, rgb(149, 154, 243));
+}
+
+
+body {
+    font-family: 'Luckiest Guy', cursive;
+    background: var(--black1);
+}
+
+.update{
+    color: var(--white2);
+        font-size: 50px;
+        text-shadow: 7px 9px #000;
+}
+
+
+/* ALL ABOUT THE MAIN CHART  */
+.chat-container {
+    width: 100%;
+    height: 600px;
+    background: #ece5dd;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+}
+
+.messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #e5ddd5;
+}
+
+/* Chat bubbles */
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-break: break-word;
+    position: relative;
+}
+
+.message.sent {
+    background: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+.message.received {
+    background: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
+ a{
+    color: #696fdd;
+}
+
+/* Scrollbar styling */
+.messages::-webkit-scrollbar {
+    width: 6px;
+}
+.messages::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 800px) {
+    body {
+        background: var(--black2);
+        padding-bottom: 4rem;
+    }
+
+.contain-hamburger{
+    display: none;
+}
+
+
+.update{
+    margin-top: 1rem;
+}
+
+
+.chat-container {
+    width: 100%;
+    height: initial;
+    background: #ece5dd;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+}
+
+
+
+}

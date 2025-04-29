@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Control the color of the mobile browser -->
+    <meta name="theme-color" content="#1f2125"> 
+    <title>Update</title>
+    <link rel="icon" href="/uploads/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/update.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- sidebar -->
+        <%- include ('partials/sidebar.ejs') %>
+
+
+            <!-- Main content -->
+            <main class="main-content">
+                <header class="header hide">
+                    <div class="profile-summary">
+                        <div class="profile-placeholder">
+                            <!-- Initials will go here -->
+                        </div>
+                        <div>
+                            <h2>
+                                <%= user.username %>
+                            </h2>
+                            <p>
+                                <%= user.email %>
+                            </p>
+                        </div>
+                    </div>
+                </header>
+
+
+                <h1 class="update">*** READ & LEARN</h1>
+
+
+                <!-- MAIN CONTENTS HERE  -->
+                <div class="chat-container">
+                    <div class="messages" id="messages">
+                        <!-- Messages will be inserted dynamically -->
+                    </div>
+                </div>
+
+                <!-- TYPING AUDIO -->
+                <audio id="typingSound" src="/typing.wav" preload="auto" loop></audio>
+                <!-- MESSAGE SENT AUDIO  -->
+                <audio id="notifSound" src="/new_message.wav" preload="auto"></audio>
+
+
+
+
+            </main>
+            <!-- WhatsApp Button -->
+            <%- include ('partials/whatsapp-btn.ejs') %>
+    </div>
+
+
+
+    <script src="https://kit.fontawesome.com/b3fa93e021.js" crossorigin="anonymous"></script>
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/update.js"></script>
+</body>
+
+</html>

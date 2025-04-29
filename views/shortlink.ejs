@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Control the color of the mobile browser -->
+    <meta name="theme-color" content="#1f2125">
+    <title>Update</title>
+    <link rel="icon" href="/uploads/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/shortlink.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- sidebar -->
+        <%- include ('partials/sidebar.ejs') %>
+
+
+            <!-- Main content -->
+            <main class="main-content">
+                <header class="header hide">
+                    <div class="profile-summary">
+                        <div class="profile-placeholder">
+                            <!-- Initials will go here -->
+                        </div>
+                        <div>
+                            <h2>
+                                <%= user.username %>
+                            </h2>
+                            <p>
+                                <%= user.email %>
+                            </p>
+                        </div>
+                    </div>
+                </header>
+
+
+                <h1 class="update">***SHORTEN YOUR URL</h1>
+
+
+                <!-- MAIN CONTENTS HERE  -->
+                <div class="link">
+                    <h1>Brief, Genuine & Verified</h1>
+
+                    <form id="shortenForm">
+                        <input type="text" id="originalUrl" name="originalUrl" placeholder="Enter Original URL"
+                            required />
+                        <input type="text" id="customShort" name="customShort"
+                            placeholder="Custom Short URL (Optional)" />
+                        <button type="submit">SHORTEN URL</button>
+                    </form>
+
+                    <div id="shortenedLink"></div>
+                    <button id="copyBtn" style="display:none; margin-top: 10px;">Copy Link</button>
+                </div>
+
+
+
+            </main>
+            <!-- WhatsApp Button -->
+            <%- include ('partials/whatsapp-btn.ejs') %>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        const shortenForm = document.getElementById('shortenForm');
+    const shortenedLinkDiv = document.getElementById('shortenedLink');
+    const copyBtn = document.getElementById('copyBtn');
+
+    shortenForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const originalUrl = document.getElementById('originalUrl').value.trim();
+        const customShort = document.getElementById('customShort').value.trim();
+
+        try {
+            const response = await fetch('/shorten', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ originalUrl, customShort }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.shortUrl) {
+                shortenedLinkDiv.innerHTML = `
+                    Your shortened URL: <a href="${data.shortUrl}" target="_blank" id="shortUrlLink">${data.shortUrl}</a>
+                `;
+                copyBtn.style.display = 'inline-block';
+                showToast('URL shortened successfully!', 'success');
+            } else {
+                showToast(data.message || 'Failed to shorten URL', 'error');
+                copyBtn.style.display = 'none';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showToast('An error occurred while shortening.', 'error');
+            copyBtn.style.display = 'none';
+        }
+    });
+
+    copyBtn.addEventListener('click', () => {
+        const link = document.getElementById('shortUrlLink');
+        if (link) {
+            navigator.clipboard.writeText(link.href).then(() => {
+                showToast('Link copied to clipboard!', 'success');
+            }).catch(() => {
+                showToast('Failed to copy link.', 'error');
+            });
+        }
+    });
+
+    function showToast(message, type) {
+        Toastify({
+            text: message,
+            duration: 4000,
+            gravity: "top",
+            position: "right",
+            style: {
+                background: type === 'success'
+                    ? 'linear-gradient(to right, #00b09b, #96c93d)'
+                    : 'linear-gradient(to right, #ff5f6d, #ffc371)',
+                color: "#fff",
+            },
+        }).showToast();
+    }
+    </script>
+
+    <script src="https://kit.fontawesome.com/b3fa93e021.js" crossorigin="anonymous"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+
+</html>

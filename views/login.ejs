@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Control the color of the mobile browser -->
+    <meta name="theme-color" content="#1f2125"> 
+    <title>sign in</title>
+    <link rel="icon" href="/uploads/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body>
+
+    <div class="background-side-left"></div>
+    <div class="background-side-right"></div>
+
+    <div class="container">
+        <canvas id="canvas"></canvas>
+
+
+        <div class="form-container">
+            <h1>Sign in</h1>
+            <form action="/login" method="post">
+                <input type="email" name="email" placeholder="Email" required />
+
+                <div class="password-container">
+                    <input id="password" type="password" name="password" placeholder="Password" required />
+                    <i class="ri-eye-off-line" id="togglePassword"></i>
+                </div>
+
+                <button type="submit">Sign in</button>
+            </form>
+
+
+            <div class="warning-containe" style="text-align: center; margin: 20px;">
+                <img src="/uploads/Internity を Taekook ✓.gif" alt="Warning GIF" style="max-width: 600px; height: auto;">
+            </div>
+
+            <p>Don't have an account? <a href="/register">sign up</a></p>
+            <p class="home">Go back <a href="/">Home</a></p>
+
+        </div>
+
+        <!-- WhatsApp Button -->
+        <%- include ('partials/whatsapp-btn.ejs') %>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <% if (message) { %>
+        <script>
+            Toastify({
+                text: "<%= message %>",
+                duration: 4000,
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "<%= type === 'success' ? 'linear-gradient(to right, #00b09b, #96c93d)' : 'linear-gradient(to right, #ff5f6d, #ffc371)' %>",
+                    color: "#fff",
+                },
+            }).showToast();
+        </script>
+        <% } %>
+
+
+            <script src='http://neilcarpenter.com/demos/canvas/matrix/stats.min.js'></script>
+            <script src="https://kit.fontawesome.com/b3fa93e021.js" crossorigin="anonymous"></script>
+            <script src="/js/canvas.js"></script>
+            <script src="/js/form.js"></script>
+</body>
+
+</html>

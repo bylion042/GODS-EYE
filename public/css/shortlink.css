@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black1: #111317;
+  --black2: #1f2125;
+  --black3: #35373b;
+  --purpel1: #696fdd;
+  --purpel2: #a3a8f0;
+  --white1: #ffffff;
+  --white2: #d1d5db;
+  --background1: linear-gradient(135deg, rgb(186, 190, 253) 0%, rgb(66, 71, 158) 100%);
+  --background2: linear-gradient(180deg, #d6d9fa, rgb(149, 154, 243));
+}
+
+
+body {
+  font-family: 'Luckiest Guy', cursive;
+  background: var(--black1);
+}
+
+.update {
+  color: var(--white2);
+  font-size: 50px;
+  text-align: center;
+  text-shadow: 7px 9px #000;
+}
+
+
+.link {
+  background: var(--black2);
+  padding: 2rem; 
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+h1 {
+  color: var(--white1);
+  font-size:50px;
+  text-shadow: 7px 9px #000;
+  margin-bottom: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--white1); 
+  opacity: 1;  
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  background: #CCC;
+  font-family: 'Luckiest Guy', cursive;
+  text-shadow: 3px 3px #000;
+  color: var(--white1);
+  border-radius: 4px;
+  font-size: 20px;
+}
+input, textarea {
+  background: #CCC;
+  color: white !important;
+  caret-color: white;
+  -webkit-text-fill-color: white !important; 
+}
+
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 15px;
+  font-weight: bolder;
+  background-color: var(--purpel1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--purpel2);
+}
+
+#shortenedLink{
+  font-size: 20px;
+  margin: 1rem 0;
+  color: var(--white1);
+  text-shadow: 5px 5px #000;
+}
+
+#shortenedLink a{
+  text-decoration: none;
+  margin-top: 1rem;
+  color: #696fdd;
+}
+
+
+
+
+
+
+@media (max-width: 800px) {
+  body {
+    background: var(--black2);
+    padding-bottom: 10rem;
+  }
+
+  .contain-hamburger {
+    display: none;
+  }
+
+  .update{
+    margin-top: 1rem;
+}
+
+input {
+  text-shadow: 3px 3px #000;
+  font-size: 18px;
+}
+
+  .link {
+    padding: 2rem 0;
+    box-shadow: none;
+}
+
+
+}

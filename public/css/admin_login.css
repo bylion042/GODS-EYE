@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black1: #111317;
+    --black2: #1f2125;
+    --black3: #35373b;
+    --purpel1: #696fdd;
+    --purpel2: #a3a8f0;
+    --green1: #4CAF50;
+    --green2: #81C784;
+    --white1: #ffffff;
+    --white2: #d1d5db;
+    --background1: linear-gradient(135deg, rgb(186, 190, 253) 0%, rgb(66, 71, 158) 100%);
+    --background2: linear-gradient(180deg, #d6d9fa, rgb(149, 154, 243));
+}
+
+body {
+    font-family: 'Luckiest Guy', cursive;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black2);
+    background-size: 400% 400%;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    height: 100vh;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.background-side-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100vh;
+    background-image: url('/img/spy1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.background-side-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    background-image: url('/img/spy2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 9000;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: bolder;
+    color: var(--white1);
+    margin-top: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 7px 9px #000;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-container i {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #696fdd;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--black3);
+    opacity: 1;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 2px solid var(--black3);
+    background: var(--white2);
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--black1);
+}
+
+.btn {
+    margin: 30px;
+    padding: 13px 15px;
+    background: var(--purpel1);
+    border: none;
+    border-radius: 10px;
+    color: var(--white1);
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    text-shadow: 3px 3px #000;
+    box-shadow: 5px 8px #000;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    background: var(--purpel2);
+}
+
+
+
+
+
+
+@media (max-width: 1000px) {
+    body {
+        padding-bottom: 3rem;
+        width: 100%;
+        max-width: 1600px;
+    }
+
+    .background-side-left {
+        display: none;
+    }
+
+    .background-side-right {
+        background-image: url('/img/bad-guy.png');
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+
+    form {
+        padding: 0px;
+    }
+
+    .btn {
+        margin: 30px;
+    }
+}

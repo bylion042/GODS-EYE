@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Control the color of the mobile browser -->
+    <meta name="theme-color" content="#1f2125"> 
+    <title>gods eye</title>
+    <link rel="icon" href="/uploads/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/url.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- sidebar -->
+        <%- include ('partials/sidebar.ejs') %>
+
+
+            <!-- Main content -->
+            <main class="main-content">
+                <header class="header hide">
+                    <div class="profile-summary">
+                        <div class="profile-placeholder">
+                            <!-- Initials will go here -->
+                        </div>
+                        <div>
+                            <h2><%= user.username %></h2>
+                            <p><%= user.email %></p>
+                        </div>
+                    </div>
+                </header>
+                
+
+                <!-- OVER ALL SECTION  -->
+                <section class="section-content">
+                    <section class="free-offers free">
+                        <div class="drop">
+                            <h1>FREE OFFERS</h1>
+                        </div>
+                        <div class="content">
+                            <%- include ('partials/free-offers.ejs') %>
+                        </div>
+                    </section>
+
+                    <section class="premium-offers">
+                        <div class="drop border">
+                            <h1>PREMIUM OFFERS</h1>
+                        </div>
+                        <div class="content">
+                            <%- include ('partials/premium-offers.ejs') %>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- /* MY FOOTER SECTION  */ -->
+                <%- include ('partials/footer.ejs') %>
+            </main>
+
+            <!-- WhatsApp Button -->
+            <%- include ('partials/whatsapp-btn.ejs') %>
+    </div>
+
+
+
+       <!-- FUNCTION TO USE USER NAME AS PROFILE PICS  -->
+       <script>
+        const username = "<%= user.username %>";  
+    
+        function getInitials(name) {
+            const parts = name.trim().split(' ');
+            if (parts.length >= 2) {
+                return parts[0][0] + parts[1][0]; 
+            } else if (parts.length === 1) {
+                return parts[0][0]; 
+            }
+            return '';
+        }
+    
+        const placeholders = document.querySelectorAll('.profile-placeholder'); // Select ALL placeholders
+    
+        placeholders.forEach(placeholder => {
+            placeholder.textContent = getInitials(username);
+        });
+    </script>
+    
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://kit.fontawesome.com/b3fa93e021.js" crossorigin="anonymous"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<div class="note">
+    <h2>Alerts & Promotions</h2>
+    <!-- <i class="fa-solid fa-triangle-exclamation"></i> -->
+</div>
+
+<div class="main-footer">
+
+    <div class="box1">
+        <h3 class="info ads">Advertisement</h3>
+
+        <div class="warning-containe ads">
+            <span class="new-badge">NEW</span>
+            <div class="slider">
+                <img src="/img/slide1.jpeg" alt="ads">
+                <img src="/img/slide6.jpeg" alt="ads">
+                <img src="/img/slide7.jpeg" alt="ads">
+                <img src="/img/slide15.jpeg" alt="ads">
+                <img src="/img/slide18.jpeg" alt="ads">
+                <img src="/img/slide10.jpeg" alt="ads">
+                <img src="/img/slide14.jpeg" alt="ads">
+                <img src="/img/slide12.jpeg" alt="ads">
+                <img src="/img/slide5.jpeg" alt="ads">
+                <img src="/img/slide4.jpeg" alt="ads">
+                <img src="/img/slide2.jpeg" alt="ads">
+                <img src="/img/slide3.jpeg" alt="ads">
+                <img src="/img/slide17.jpeg" alt="ads">
+                <img src="/img/slide11.jpeg" alt="ads">
+                <img src="/img/slide19.jpeg" alt="ads">
+                <img src="/img/slide20.jpeg" alt="ads">
+                <img src="/img/slide8.jpeg" alt="ads">
+                <img src="/img/slide13.jpeg" alt="ads">
+                <img src="/img/slide9.jpeg" alt="ads">
+                <img src="/img/slide16.jpeg" alt="ads">
+            </div>
+
+            <div class="ads-info">
+                <p>
+                    Advertise Here!
+                    Boost your brand with tailored ad placements.
+                    Tap the WhatsApp icon to get started! 
+                </p>
+            </div>
+        </div>
+
+        <p>
+            No ads yet!
+            Want to promote your business or brand here?
+            Click the WhatsApp icon to contact the admin.
+            We offer tailored ad placements to help you reach the right audience!.
+        </p>
+    </div>
+
+
+
+    <div class="box2">
+        <h3 class="info warning">Warning </h3>
+
+        <div class="warning-containe alart" style="text-align: center;">
+            <img src="/uploads/warning.jpeg" alt="warning blog" style="max-width: 600px; height: auto;">
+
+            <div class="ads-info">
+                <p>
+                    For Educational Use Only.
+                    Misuse is illegal. Stay ethical.
+                </p>
+            </div>
+        </div>
+        <p>
+            This platform is designed to raise awareness about phishing attacks and teach you how to spot and avoid
+            them. Understanding phishing is key to protecting yourself and your organization.
+        </p>
+    </div>
+</div>
+
+
+
+
+<div class="footer-bottom">
+    <p>Copyright © gods_eye 2024. All right reserved.</p>
+</div>
+
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let images = document.querySelectorAll(".slider img");
+        let index = 0;
+
+        function changeImage() {
+            images.forEach(img => img.classList.remove("active"));
+            images[index].classList.add("active");
+
+            index = (index + 1) % images.length; // Loop back to the first image
+        }
+
+        images[0].classList.add("active"); // Show first image initially
+        setInterval(changeImage, 3000); // Change image every 3 seconds
+    });
+</script>
