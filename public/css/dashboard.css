@@ -602,6 +602,7 @@ body {
         font-weight: 600;
         padding: 2px 6px;
         border-radius: 50%;
+        text-shadow: 3px 3px #000;
         box-shadow: 0 0 6px rgba(255, 92, 92, 0.7);
         animation: pulseBadge 1.2s infinite ease-in-out;
     }

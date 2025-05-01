@@ -25,8 +25,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: radial-gradient(circle at center, #4CAF50, #78ffd6, #32e0c4, #00c9a7); */
-    background: var(--black2);
+    background: var(--black3);
     background-size: 400% 400%;
     padding-bottom: 5rem;
     width: 100%;
@@ -385,7 +384,22 @@ body::after {
 
 
 
-
+/* Floating button styling */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 40px;
+    background: #4CAF50;
+    right: 10px;
+    color: var(--white1);
+    border-radius: 50%;
+    padding: 7px 10px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    box-shadow: 5px 5px #000;
+    animation: zoomInOut 2s infinite ease-in-out; /* Add animation */
+}
 
 
 
@@ -482,7 +496,7 @@ body::after {
         max-width: 1600px;
     }
 
-    .background-side-right {
+    .background-side-right,.background-side-left {
         display: none;
     }
 
@@ -494,13 +508,13 @@ body::after {
 
     .social-icons a {
         margin: 10px;
-        padding: 5px 10px;
+        padding: 7px 10px;
         font-size: 1.50rem;
         color: white;
     }
 
     .music-icon {
-        top: 65%;
+        top: 50%;
         right: 5px; 
     }
     
@@ -543,7 +557,6 @@ body::after {
     .controls button {
         margin: 10px;
         padding: 20px 50px;
-        background: #4CAF50;
         border: none;
         border-radius: 20px;
         color: white;

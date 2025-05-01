@@ -69,12 +69,11 @@ ul {
 }
 
 li {
-    border: 1px solid var(--black3);
     padding: 10px;
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
-    background-color: var(--black2);
+    background-color: var(--black3);
     border-radius: 10px;
 }
 
@@ -102,8 +101,9 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
-    margin-top: 10px;
-    border-radius: 8px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px #000;
 }
 button:hover{
     background-color: #f86363;
@@ -129,4 +129,8 @@ p {
         text-align: center;
     }
     
+
+    h2 {
+        margin-top: 2rem;
+    }
 }

@@ -13,7 +13,6 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        // Check if email already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.render('register', { message: 'Email is already taken.', type: 'error' });
@@ -22,13 +21,16 @@ router.post('/register', async (req, res) => {
         const user = new User({ username, email, password });
         await user.save();
 
-        res.render('/dashboard', { message: 'Registration successful!.', type: 'success' });
+        // Save user in session
+        req.session.userId = user._id;
+
+        // Redirect to dashboard
+        res.redirect('/dashboard');
     } catch (err) {
         console.error('Error creating user:', err);
         res.render('register', { message: 'Something went wrong. Please try again.', type: 'error' });
     }
 });
-
 
 
 
